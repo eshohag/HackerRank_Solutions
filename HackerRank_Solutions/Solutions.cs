@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -70,6 +71,24 @@ namespace HackerRank_Solutions
                 arr[i] = output[i];
             }
         }
+        public static List<int> countingSort(List<int> arr)
+        {
+            int n = arr.Count();
+            List<int> arr1 = new List<int>();
+            for (int i = 0; i < 100; i++)
+            {
+                arr1.Add(0);
+            }
+            for (int i = 0; i < n; i++)
+            {
+                for (int j = 0; j < 100; j++)
+                {
+                    if (arr[i] == j)
+                        arr1[j]++;
+                }
+            }
+            return arr1;
+        }
         public static int DiagonalDifference(List<List<int>> arr)
         {
             var right = 0;
@@ -93,6 +112,35 @@ namespace HackerRank_Solutions
             var medianIndex = arr.Count / 2;
             return arr[medianIndex];
         }
+        #region Flipping Matrix 2D
+        public static int FlippingMatrix(List<List<int>> matrix)
+        {
+            var sum = 0;
+            var n = matrix.Count / 2;
+            for (var row = 0; row < n; row++)
+            {
+                for (var col = 0; col < n; col++)
+                {
+                    sum += getMaxPossibleFor(matrix, row, col);
+                }
+            }
+
+            return sum;
+        }
+        public static int getMaxPossibleFor(List<List<int>> matrix, int row, int col)
+        {
+            var n2 = matrix.Count - 1;
+            return Math.Max(
+                Math.Max(
+                    matrix[row][col],
+                    matrix[n2 - row][col]),
+
+                Math.Max(
+                    matrix[row][n2 - col],
+                    matrix[n2 - row][n2 - col])
+            );
+        }
+        #endregion
         public static void PlusMinus(List<int> arr)
         {
             var length = Convert.ToDecimal(arr.Count);
