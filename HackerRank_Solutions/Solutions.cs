@@ -10,6 +10,20 @@ namespace HackerRank_Solutions
 {
     public class Solutions
     {
+        public static String Reshape(int n, String str)
+        {
+            var array = str.Replace(" ", "").ToCharArray();
+            var test = "";
+            for (int i = 0; i < array.Length; i++)
+            {
+                if (test != "" && (i % n == 0 || n == i))
+                {
+                    test += System.Environment.NewLine;
+                }
+                test += array[i].ToString();
+            }
+            return test;
+        }
         public static int BeautifulTriplets(int d, List<int> arr)
         {
             int count = 0;

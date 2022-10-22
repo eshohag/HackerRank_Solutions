@@ -6,7 +6,8 @@ namespace Solutions_Solutions
     {
         static void Main(string[] args)
         {
-
+            //Console.WriteLine(Solutions.Reshape(5, "ab c d e f gh"));
+            
             //int n = Convert.ToInt32(Console.ReadLine().Trim());
             List<int> arr = Console.ReadLine().TrimEnd().Split(' ').ToList().Select(arrTemp => Convert.ToInt32(arrTemp)).ToList();
             Solutions.MinimumDistances(arr);
@@ -15,7 +16,6 @@ namespace Solutions_Solutions
             //var time=   Solutions.TimeConversion(s);
             //var median = Solutions.FindMedian(arr);
             //var result = Solutions.LonelyInteger(arr);
-
 
             //List<List<int>> arr = new List<List<int>>();
             //for (int i = 0; i < n; i++)
